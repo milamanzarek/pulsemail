@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f19">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="PulseMail">
+  <link rel="manifest" href="manifest.json">
+  <title>PulseMail | Gmail Responsive Newsletter Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top App Navigation Bar -->
+  <header class="app-header">
+    <div class="brand-section">
+      <div class="logo-badge">
+        <div class="logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="app-title">
+          PulseMail <span class="app-tag">Gmail Studio</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Responsive Device Viewport Switcher -->
+    <div class="header-center-controls">
+      <button class="device-btn" id="btn-device-mobile" title="Mobile Phone View (375px)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="5" y="2" width="14" height="20" rx="3" ry="3"></rect>
+          <line x1="12" y1="18" x2="12.01" y2="18"></line>
+        </svg>
+        <span class="device-text">Mobile</span>
+      </button>
+
+      <button class="device-btn" id="btn-device-tablet" title="Tablet View (768px)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
+        <span class="device-text">Tablet</span>
+      </button>
+
+      <button class="device-btn active" id="btn-device-desktop" title="Desktop View (Full Width)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        <span class="device-text">Desktop</span>
+      </button>
+
+      <button class="device-btn" id="btn-device-gmail" title="Simulate Gmail Web Inbox Experience">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <span class="device-text">Gmail Web</span>
+      </button>
+
+      <button class="device-btn" id="btn-toggle-darkmode" title="Toggle Dark Mode Client Preview">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <span class="device-text">Dark Sim</span>
+      </button>
+    </div>
+
+    <!-- Header Action CTAs -->
+    <div class="header-actions">
+      <!-- 1-Click Copy for Gmail -->
+      <button class="btn btn-gmail" id="btn-copy-gmail" title="Copy formatted rich text to paste directly into Gmail compose">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+        </svg>
+        <span>Copy for Gmail</span>
+      </button>
+
+      <!-- View & Copy HTML -->
+      <button class="btn btn-secondary" id="btn-view-html" title="Get Gmail-optimized inline-CSS HTML">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        <span>HTML Code</span>
+      </button>
+
+      <!-- More Actions Dropdown -->
+      <button class="btn btn-secondary" id="btn-export-dropdown" title="Download & Template Options">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>Export</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Work Area -->
+  <div class="app-main">
+
+    <!-- Left Sidebar: Builder Controls & Libraries -->
+    <aside class="sidebar-left" id="sidebar-left">
+      <!-- Tabs Navigation -->
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="tab-blocks">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          Blocks
+        </button>
+        <button class="tab-btn" data-tab="tab-brand">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+            <path d="M2 12h20"></path>
+          </svg>
+          Brand Kit
+        </button>
+        <button class="tab-btn" data-tab="tab-templates">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+          </svg>
+          Templates
+        </button>
+        <button class="tab-btn" data-tab="tab-diagnostics">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          Health
+        </button>
+      </div>
+
+      <div class="sidebar-content">
+
+        <!-- TAB 1: ADD BLOCKS -->
+        <div class="tab-panel active" id="tab-blocks">
+          
+          <!-- Headers & Nav -->
+          <div>
+            <div class="section-title">Headers & Nav</div>
+            <div class="block-category-grid">
+              <div class="block-item-card" data-block-type="header-classic">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+                </div>
+                <div class="block-card-name">Logo & Nav</div>
+                <div class="block-card-desc">Brand logo with nav links</div>
+              </div>
+
+              <div class="block-item-card" data-block-type="header-minimal">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="6" x2="20" y2="6"></line></svg>
+                </div>
+                <div class="block-card-name">Editorial Bar</div>
+                <div class="block-card-desc">Substack-style clean bar</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video & Media -->
+          <div>
+            <div class="section-title">Videos & Photos</div>
+            <div class="block-category-grid">
+              <div class="block-item-card" data-block-type="video-card">
+                <div class="block-card-icon" style="color: #ef4444;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </div>
+                <div class="block-card-name">Video Card</div>
+                <div class="block-card-desc">YouTube/video mockup + play button</div>
+              </div>
+
+              <div class="block-item-card" data-block-type="photo-hero">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                </div>
+                <div class="block-card-name">Hero Photo</div>
+                <div class="block-card-desc">Full width banner image</div>
+              </div>
+
+              <div class="block-item-card" data-block-type="photo-grid-2">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="18" rx="1"></rect><rect x="13" y="3" width="8" height="18" rx="1"></rect></svg>
+                </div>
+                <div class="block-card-name">2-Photo Row</div>
+                <div class="block-card-desc">Side-by-side photo gallery</div>
+              </div>
+
+              <div class="block-item-card" data-block-type="photo-grid-3">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="6" height="18" rx="1"></rect><rect x="9" y="3" width="6" height="18" rx="1"></rect><rect x="16" y="3" width="6" height="18" rx="1"></rect></svg>
+                </div>
+                <div class="block-card-name">3-Photo Grid</div>
+                <div class="block-card-desc">Triple image showcase</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Multi-Column Layouts -->
+          <div>
+            <div class="section-title">Responsive Columns</div>
+            <div class="block-category-grid">
+              <div class="block-item-card" data-block-type="cols-2-equal">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="18" rx="1"></rect><rect x="13" y="3" width="8" height="18" rx="1"></rect></svg>
+                </div>
+                <div class="block-card-name">2 Columns 50/50</div>
+                <div class="block-card-desc">Card with image & text</div>
+              </div>
+
+              <div class="block-item-card" data-block-type="cols-3-equal">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="5.5" height="18" rx="1"></rect><rect x="9.2" y="3" width="5.5" height="18" rx="1"></rect><rect x="16.5" y="3" width="5.5" height="18" rx="1"></rect></svg>
+                </div>
+                <div class="block-card-name">3 Columns (33%)</div>
+                <div class="block-card-desc">Product / team cards</div>
+              </div>
+
+              <div class="block-item-card" data-block-type="cols-4-stats">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="4" height="18" rx="1"></rect><rect x="7.5" y="3" width="4" height="18" rx="1"></rect><rect x="13" y="3" width="4" height="18" rx="1"></rect><rect x="18.5" y="3" width="4" height="18" rx="1"></rect></svg>
+                </div>
+                <div class="block-card-name">4 Columns (Stats)</div>
+                <div class="block-card-desc">Key metrics & highlights</div>
+              </div>
+
+              <div class="block-item-card" data-block-type="cols-magazine">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="18" rx="1"></rect><line x1="13" y1="7" x2="21" y2="7"></line><line x1="13" y1="12" x2="21" y2="12"></line><line x1="13" y1="17" x2="18" y2="17"></line></svg>
+                </div>
+                <div class="block-card-name">Magazine Split</div>
+                <div class="block-card-desc">Image left + story right</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content & Text -->
+          <div>
+            <div class="section-title">Content & Text</div>
+            <div class="block-category-grid">
+              <div class="block-item-card" data-block-type="hero-banner">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h8"></path></svg>
+                </div>
+                <div class="block-card-name">Hero Headline</div>
+                <div class="block-card-desc">Bold headline + CTA button</div>
+              </div>
+
+              <div class="block-item-card" data-block-type="text-story">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                </div>
+                <div class="block-card-name">Rich Story</div>
+                <div class="block-card-desc">Paragraph with styling</div>
+              </div>
+
+              <div class="block-item-card" data-block-type="quote-card">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path></svg>
+                </div>
+                <div class="block-card-name">Pull Quote</div>
+                <div class="block-card-desc">Highlighted testimonial</div>
+              </div>
+
+              <div class="block-item-card" data-block-type="callout-box">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                </div>
+                <div class="block-card-name">Callout Card</div>
+                <div class="block-card-desc">Notice or tip card</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTAs & Interactive -->
+          <div>
+            <div class="section-title">Calls-to-Action</div>
+            <div class="block-category-grid">
+              <div class="block-item-card" data-block-type="cta-button">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="8" width="18" height="8" rx="4"></rect></svg>
+                </div>
+                <div class="block-card-name">CTA Button</div>
+                <div class="block-card-desc">Bulletproof email button</div>
+              </div>
+
+              <div class="block-item-card" data-block-type="coupon-badge">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"></line><circle cx="6.5" cy="6.5" r="2.5"></circle><circle cx="17.5" cy="17.5" r="2.5"></circle></svg>
+                </div>
+                <div class="block-card-name">Voucher / Code</div>
+                <div class="block-card-desc">Discount code promo box</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footers -->
+          <div>
+            <div class="section-title">Footers & Social</div>
+            <div class="block-category-grid">
+              <div class="block-item-card" data-block-type="social-links">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </div>
+                <div class="block-card-name">Social Icons</div>
+                <div class="block-card-desc">X, YouTube, LinkedIn etc.</div>
+              </div>
+
+              <div class="block-item-card" data-block-type="footer-full">
+                <div class="block-card-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle></svg>
+                </div>
+                <div class="block-card-name">Full Footer</div>
+                <div class="block-card-desc">Address & Unsubscribe</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TAB 2: BRAND KIT -->
+        <div class="tab-panel" id="tab-brand">
+          <div class="section-title">Quick Palettes</div>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;">
+            <button class="btn btn-secondary btn-sm" id="palette-tech">Modern Indigo</button>
+            <button class="btn btn-secondary btn-sm" id="palette-creator">Creator Red</button>
+            <button class="btn btn-secondary btn-sm" id="palette-emerald">Organic Green</button>
+            <button class="btn btn-secondary btn-sm" id="palette-amber">Warm Amber</button>
+            <button class="btn btn-secondary btn-sm" id="palette-minimal">Dark Minimal</button>
+            <button class="btn btn-secondary btn-sm" id="palette-corporate">Navy Corporate</button>
+          </div>
+
+          <div class="section-title" style="margin-top: 10px;">Brand Color Theme</div>
+          <div class="brand-group">
+            <div class="form-row">
+              <span class="form-label">Primary Color</span>
+              <div class="color-input-wrapper">
+                <input type="color" id="brand-color-primary" class="color-picker-input" value="#2563eb">
+                <input type="text" id="brand-hex-primary" class="color-hex-text" value="#2563eb">
+              </div>
+            </div>
+            <div class="form-row">
+              <span class="form-label">Accent Color</span>
+              <div class="color-input-wrapper">
+                <input type="color" id="brand-color-accent" class="color-picker-input" value="#f59e0b">
+                <input type="text" id="brand-hex-accent" class="color-hex-text" value="#f59e0b">
+              </div>
+            </div>
+            <div class="form-row">
+              <span class="form-label">Card Background</span>
+              <div class="color-input-wrapper">
+                <input type="color" id="brand-color-card" class="color-picker-input" value="#ffffff">
+                <input type="text" id="brand-hex-card" class="color-hex-text" value="#ffffff">
+              </div>
+            </div>
+            <div class="form-row">
+              <span class="form-label">Canvas Background</span>
+              <div class="color-input-wrapper">
+                <input type="color" id="brand-color-canvas" class="color-picker-input" value="#f1f5f9">
+                <input type="text" id="brand-hex-canvas" class="color-hex-text" value="#f1f5f9">
+              </div>
+            </div>
+            <div class="form-row">
+              <span class="form-label">Body Text Color</span>
+              <div class="color-input-wrapper">
+                <input type="color" id="brand-color-text" class="color-picker-input" value="#1e293b">
+                <input type="text" id="brand-hex-text" class="color-hex-text" value="#1e293b">
+              </div>
+            </div>
+          </div>
+
+          <div class="section-title">Email Typography</div>
+          <div class="brand-group">
+            <div class="form-row" style="flex-direction: column; align-items: flex-start; gap: 6px;">
+              <span class="form-label">Web-Safe Email Font</span>
+              <select id="brand-font-family" class="select-input">
+                <option value="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">Modern System (Inter / Apple / Roboto)</option>
+                <option value="Arial, Helvetica, sans-serif">Arial / Helvetica (Universal Clean)</option>
+                <option value="Georgia, 'Times New Roman', serif">Georgia (Editorial & Literary)</option>
+                <option value="'Trebuchet MS', 'Lucida Sans Unicode', sans-serif">Trebuchet MS (Friendly & Open)</option>
+                <option value="Verdana, Geneva, sans-serif">Verdana (High Readability)</option>
+                <option value="'Courier New', Courier, monospace">Courier (Code & Tech)</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <span class="form-label">Button Radius</span>
+              <select id="brand-border-radius" class="select-input" style="width: 140px;">
+                <option value="4px">Slight (4px)</option>
+                <option value="8px" selected>Modern (8px)</option>
+                <option value="16px">Rounded (16px)</option>
+                <option value="12px">Architectural (12px)</option>
+                <option value="0px">Sharp (0px)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="section-title">Brand Identity</div>
+          <div class="brand-group">
+            <div class="form-row" style="flex-direction: column; align-items: flex-start; gap: 6px;">
+              <span class="form-label">Company / Brand Name</span>
+              <input type="text" id="brand-company-name" class="text-input" value="TechPulse Weekly">
+            </div>
+            <div class="form-row" style="flex-direction: column; align-items: flex-start; gap: 6px;">
+              <span class="form-label">Logo Image URL</span>
+              <input type="text" id="brand-logo-url" class="text-input" placeholder="https://... or upload">
+              <label class="btn btn-secondary btn-sm" style="width: 100%; cursor: pointer;">
+                📁 Upload Brand Logo
+                <input type="file" id="brand-logo-upload" accept="image/*" style="display: none;">
+              </label>
+            </div>
+          </div>
+
+          <button class="btn btn-accent" id="btn-apply-brand" style="width: 100%; padding: 10px;">
+            Apply Brand Kit to Current Newsletter
+          </button>
+        </div>
+
+        <!-- TAB 3: TEMPLATES -->
+        <div class="tab-panel" id="tab-templates">
+          <div class="section-title">Curated Gmail Layouts</div>
+          <div class="templates-grid" id="templates-list">
+            <!-- Dynamically populated or template cards -->
+          </div>
+        </div>
+
+        <!-- TAB 4: DIAGNOSTICS & GMAIL LINTER -->
+        <div class="tab-panel" id="tab-diagnostics">
+          <div class="section-title">Gmail Compatibility Audit</div>
+          <div class="brand-group" id="diagnostics-panel">
+            <!-- Diagnostics items -->
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- Center Stage: Email Viewport & Canvas -->
+    <main class="preview-stage" id="preview-stage">
+      
+      <!-- Sticky Quick Status Bar -->
+      <div class="stage-floating-bar">
+        <div class="stage-stat">
+          <span>Gmail Limit:</span>
+          <span class="stat-pill safe" id="stat-byte-size">24.2 KB / 102 KB</span>
+        </div>
+        <div class="stage-stat">
+          <span>Sections:</span>
+          <span class="stat-pill" style="background: rgba(255,255,255,0.1); color: #fff;" id="stat-block-count">6</span>
+        </div>
+        <div class="stage-stat">
+          <span>Width:</span>
+          <span id="stat-width-label" style="color: #94a3b8; font-weight: 500;">Desktop (600px Max)</span>
+        </div>
+        <button class="btn btn-secondary btn-sm" id="btn-quick-copy" title="Quick copy rich text for Gmail">
+          ⚡ 1-Click Copy
+        </button>
+      </div>
+
+      <!-- Device Viewport Frame -->
+      <div class="viewport-frame mode-desktop" id="viewport-frame">
+
+        <!-- Gmail Web Simulation Chrome Header -->
+        <div class="gmail-sim-header" id="gmail-sim-header">
+          <div class="gmail-sim-topbar">
+            <div class="gmail-sim-logo">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="#EA4335"/>
+              </svg>
+              <span>Gmail</span>
+            </div>
+            <div class="gmail-sim-search">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <span>Search in mail</span>
+            </div>
+            <div style="font-size: 12px; color: #5f6368;">Inbox / Primary</div>
+          </div>
+          <div class="gmail-meta-row">
+            <div style="display: flex; gap: 12px; align-items: center;">
+              <div class="gmail-sender-avatar" id="sim-avatar">TP</div>
+              <div>
+                <div class="gmail-subject-line" id="sim-subject">🚀 The Future of AI & Spatial Computing: Issue #42</div>
+                <div class="gmail-sender-details">
+                  <strong id="sim-sender-name">TechPulse Weekly</strong> &lt;newsletter@techpulse.io&gt;
+                </div>
+                <div class="gmail-preheader-tag" id="sim-preheader">Inside: Hands-on video breakdown, 3 new breakthroughs, and our developer guide.</div>
+              </div>
+            </div>
+            <div style="font-size: 11px; color: #5f6368; white-space: nowrap;">10:24 AM (Just now)</div>
+          </div>
+        </div>
+
+        <!-- Rendered Email Document Iframe / Canvas -->
+        <div class="email-render-canvas" id="email-render-canvas">
+          <iframe id="preview-iframe" title="Newsletter Preview" scrolling="no" style="width: 100%; border: none; min-height: 400px; display: block; overflow: hidden;"></iframe>
+        </div>
+
+      </div>
+
+    </main>
+
+    <!-- Right Sidebar: Properties & Section Structure -->
+    <aside class="sidebar-right" id="sidebar-right">
+      
+      <div class="sidebar-right-header">
+        <div class="sidebar-right-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="4" y1="21" x2="4" y2="14"></line>
+            <line x1="4" y1="10" x2="4" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12" y2="3"></line>
+            <line x1="20" y1="21" x2="20" y2="16"></line>
+            <line x1="20" y1="12" x2="20" y2="3"></line>
+          </svg>
+          Block Settings & Order
+        </div>
+      </div>
+
+      <div class="sidebar-right-content">
+        
+        <!-- Subject & Preheader Inputs -->
+        <div class="section-title">Inbox Setup</div>
+        <div class="brand-group">
+          <div class="form-row" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+            <span class="form-label">Subject Line (Gmail Header)</span>
+            <input type="text" id="input-subject-line" class="text-input" value="🚀 The Future of AI & Spatial Computing: Issue #42">
+          </div>
+          <div class="form-row" style="flex-direction: column; align-items: flex-start; gap: 4px;">
+            <span class="form-label">Preheader Snippet (Inbox Preview)</span>
+            <input type="text" id="input-preheader-text" class="text-input" value="Inside: Hands-on video breakdown, 3 new breakthroughs, and our developer guide.">
+            <span style="font-size: 10px; color: var(--text-muted);">This text appears next to your subject in the Gmail inbox before opening.</span>
+          </div>
+        </div>
+
+        <!-- Selected Block Editor Panel -->
+        <div class="section-title" id="selected-block-header">Block Properties</div>
+        <div class="brand-group" id="selected-block-controls">
+          <div style="font-size: 12px; color: var(--text-muted); text-align: center; padding: 12px;">
+            Click on any section in the newsletter preview to customize its media, text, colors, and layout.
+          </div>
+        </div>
+
+        <!-- Sections Structure Reorder List -->
+        <div class="section-title" style="display: flex; justify-content: space-between; align-items: center;">
+          <span>Newsletter Sections (<span id="count-sections">6</span>)</span>
+        </div>
+        <div class="sections-order-list" id="sections-order-list">
+          <!-- Populated by JavaScript -->
+        </div>
+
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- MODAL: Gmail Direct Paste Guide -->
+  <div class="modal-overlay" id="modal-gmail-guide">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">
+          <span style="background: #ea4335; color: white; border-radius: 50%; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; font-size: 12px;">✓</span>
+          Copied to Clipboard for Gmail!
+        </div>
+        <button class="reorder-btn close-modal" data-modal="modal-gmail-guide">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 12px; color: #34d399; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
+          <span>🎉 Formatted rich-text email copied! Ready for instant 1-step pasting into Gmail.</span>
+        </div>
+
+        <div style="font-size: 14px; font-weight: 600; color: #f8fafc;">How to send in 3 easy steps:</div>
+        
+        <div style="display: flex; flex-direction: column; gap: 12px;">
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <div style="background: var(--bg-tertiary); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">1</div>
+            <div>
+              <div style="font-weight: 600; font-size: 13px; color: #f8fafc;">Open Gmail</div>
+              <div style="font-size: 12px; color: #94a3b8;">Go to <a href="https://mail.google.com" target="_blank" style="color: #60a5fa;">mail.google.com</a> and click the <strong>+ Compose</strong> button.</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <div style="background: var(--bg-tertiary); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">2</div>
+            <div>
+              <div style="font-weight: 600; font-size: 13px; color: #f8fafc;">Paste (Ctrl+V or Cmd+V)</div>
+              <div style="font-size: 12px; color: #94a3b8;">Click inside the Gmail compose body area and press <strong>Ctrl+V</strong> (or <strong>Cmd+V</strong> on Mac). All formatted columns, buttons, images, and videos will appear instantly!</div>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 12px; align-items: flex-start;">
+            <div style="background: var(--bg-tertiary); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">3</div>
+            <div>
+              <div style="font-weight: 600; font-size: 13px; color: #f8fafc;">Add Subject & Recipients, then Send!</div>
+              <div style="font-size: 12px; color: #94a3b8;">Copy the subject line: <code id="guide-subject-code" style="background: #0f172a; padding: 2px 6px; border-radius: 4px; color: #f59e0b;">Subject</code>, add your recipients (or BCC list), and hit Send!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary close-modal" data-modal="modal-gmail-guide">Got It</button>
+        <a href="https://mail.google.com" target="_blank" class="btn btn-gmail" style="text-decoration: none;">Open Gmail Now ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: View & Export HTML Source -->
+  <div class="modal-overlay" id="modal-html-view">
+    <div class="modal-box" style="max-width: 800px;">
+      <div class="modal-header">
+        <div class="modal-title">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          Production Gmail HTML Code
+        </div>
+        <button class="reorder-btn close-modal" data-modal="modal-html-view">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between;">
+          <span>Inline-styled, RFC 2822 & Gmail tested responsive HTML.</span>
+          <span id="modal-html-filesize" style="font-weight: bold; color: var(--accent-light);">0 KB</span>
+        </div>
+        <textarea id="html-code-area" class="code-preview-area" readonly></textarea>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary close-modal" data-modal="modal-html-view">Close</button>
+        <button class="btn btn-secondary" id="btn-download-html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download .html
+        </button>
+        <button class="btn btn-accent" id="btn-copy-raw-html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          Copy Code
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: Export / Import JSON & Mailto -->
+  <div class="modal-overlay" id="modal-export-options">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">Export & Backup Options</div>
+        <button class="reorder-btn close-modal" data-modal="modal-export-options">✕</button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-weight: 600; font-size: 13px;">Save Template as JSON</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Save this exact layout to reload or share later</div>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="btn-download-json">Download JSON</button>
+          </div>
+
+          <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-weight: 600; font-size: 13px;">Load Template from JSON</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Restore a previously saved newsletter design</div>
+            </div>
+            <label class="btn btn-secondary btn-sm" style="cursor: pointer;">
+              Upload JSON
+              <input type="file" id="input-import-json" accept=".json" style="display: none;">
+            </label>
+          </div>
+
+          <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-weight: 600; font-size: 13px;">Send Test Email</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Open default mail client with Subject & Text</div>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="btn-open-mailto">Test Mailto</button>
+          </div>
+
+          <div style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-weight: 600; font-size: 13px;">Reset to Clean Blank</div>
+              <div style="font-size: 11px; color: var(--text-muted);">Start a fresh newsletter from scratch</div>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="btn-reset-blank" style="color: var(--danger);">Reset Blank</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary close-modal" data-modal="modal-export-options">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Bottom Navigation Bar (Visible on mobile screens) -->
+  <nav class="mobile-bottom-nav" id="mobile-bottom-nav">
+    <button class="mobile-nav-btn active" data-mobile-view="preview">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+      <span>Preview</span>
+    </button>
+    <button class="mobile-nav-btn" data-mobile-view="blocks">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+      <span>Blocks</span>
+    </button>
+    <button class="mobile-nav-btn" data-mobile-view="brand">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+      <span>Brand</span>
+    </button>
+    <button class="mobile-nav-btn" data-mobile-view="settings">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line></svg>
+      <span>Settings</span>
+    </button>
+  </nav>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Application Logic -->
+  <script src="templates_data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,73 @@
+{
+  "subject": "🚀 The Future of AI & Spatial Computing: Issue #42",
+  "preheader": "Inside: Hands-on video breakdown, 3 new breakthroughs, and our developer guide.",
+  "brand": {
+    "primary": "#2563eb",
+    "accent": "#f59e0b",
+    "cardBg": "#ffffff",
+    "canvasBg": "#f1f5f9",
+    "textColor": "#1e293b",
+    "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    "borderRadius": "8px",
+    "companyName": "TechPulse Media"
+  },
+  "blocks": [
+    {
+      "id": "b1",
+      "type": "header-classic",
+      "brandName": "TechPulse",
+      "tagline": "WEEKLY DISPATCH • ISSUE #42",
+      "navLinks": [
+        { "label": "Deep Dives", "url": "https://example.com/deep-dives" },
+        { "label": "Podcast", "url": "https://example.com/podcast" }
+      ]
+    },
+    {
+      "id": "b2",
+      "type": "hero-banner",
+      "eyebrow": "FEATURED STORY",
+      "title": "Autonomous Agents Meet Spatial Interfaces",
+      "body": "The intersection of multimodal LLMs and spatial computing is redefining how software is built.",
+      "buttonText": "Read Complete Analysis →",
+      "buttonUrl": "https://example.com/analysis"
+    },
+    {
+      "id": "b3",
+      "type": "video-card",
+      "videoUrl": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "thumbnailUrl": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=900&auto=format&fit=crop&q=80",
+      "videoTitle": "Hands-on: Building with Next-Gen Neural Workflows",
+      "duration": "12:45",
+      "caption": "▶ Click to watch our technical breakdown with the engineering lead.",
+      "playStyle": "red"
+    },
+    {
+      "id": "b4",
+      "type": "cols-2-equal",
+      "col1": {
+        "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&auto=format&fit=crop&q=80",
+        "tag": "CYBERSECURITY",
+        "title": "Zero-Trust Encryption in 2026",
+        "body": "Why post-quantum cryptographic primitives are becoming the enterprise baseline.",
+        "buttonText": "Read Article",
+        "url": "https://example.com/security"
+      },
+      "col2": {
+        "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&auto=format&fit=crop&q=80",
+        "tag": "DEV TOOLS",
+        "title": "The Death of the Local Server",
+        "body": "Cloud ephemeral sandboxes are replacing standard local dev containers at scale.",
+        "buttonText": "Explore Tools",
+        "url": "https://example.com/devtools"
+      }
+    },
+    {
+      "id": "b5",
+      "type": "footer-full",
+      "companyName": "TechPulse Media Inc.",
+      "address": "500 Howard Street, Suite 400, San Francisco, CA 94105",
+      "unsubscribeText": "You are receiving this email because you subscribed to TechPulse Weekly.",
+      "unsubscribeUrl": "https://example.com/unsubscribe"
+    }
+  ]
+}
