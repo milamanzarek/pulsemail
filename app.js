@@ -1019,9 +1019,9 @@
       return `
         <div class="section-order-item ${isSelected ? 'active' : ''}" data-index="${idx}">
           <div class="section-order-info">
-            <span style="font-size: 11px; color: var(--text-muted); font-weight: 700; width: 16px;">${idx + 1}</span>
-            <div>
-              <div class="section-order-title">${escapeHtml(title)}</div>
+            <span class="section-order-num">${idx + 1}</span>
+            <div class="section-order-text">
+              <div class="section-order-title" title="${escapeHtml(title)}">${escapeHtml(title)}</div>
               <div class="section-order-type">${escapeHtml(b.type)}</div>
             </div>
           </div>

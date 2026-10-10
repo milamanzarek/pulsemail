@@ -782,8 +782,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   cursor: pointer;
   transition: all 0.15s ease;
+  overflow: hidden;
 }
 
 .section-order-item:hover {
@@ -800,7 +802,23 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex: 1 1 auto;
   min-width: 0;
+  overflow: hidden;
+}
+
+.section-order-num {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 700;
+  width: 16px;
+  flex-shrink: 0;
+}
+
+.section-order-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .section-order-title {
@@ -810,12 +828,19 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
 }
 
 .section-order-type {
   font-size: 10px;
   color: var(--text-muted);
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  max-width: 100%;
 }
 
 .section-order-actions {
